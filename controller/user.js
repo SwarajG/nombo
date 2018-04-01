@@ -14,7 +14,7 @@ module.exports = {
         email
       }
     };
-    docClient.put(params, function (err, data) {
+    docClient.put(params, (err, data) => {
       if (err) {
         cb(err, null);
         console.error('Unable to add item. Error JSON:', JSON.stringify(err, null, 2));
