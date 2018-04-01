@@ -1,12 +1,16 @@
+require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const dynamo = require('dynamodb');
 
 dynamo.AWS.config.update({
-  accessKeyId: 'AKIAIE6SV2T63O7X6JRA',
-  secretAccessKey: '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',
-  region: 'us-west-2',
+  accessKeyId: process.env.ACCESS_KEY,
+  secretAccessKey: process.env.PRIVATE_KEY,
+  region: process.env.REGION,
 });
+
+console.log(process.env.ACCESS_KEY, process.env.PRIVATE_KEY, process.env.REGION);
 
 const userController = require('./controller/user');
 
